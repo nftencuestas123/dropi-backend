@@ -1,0 +1,137 @@
+# Documento Empresarial VIP — Algoritmo y Backend Escalable para Dropshipping Cobro Contra Entrega
+
+***
+
+## 1. Resumen Global
+
+Este documento reúne de inicio a fin **todas tus ideas, necesidades, mejoras y visión práctica**, con aportes técnicos profesionales paso a paso: desde la subida masiva y manual de productos con IA, el manejo por usuarios y seguridad, hasta la integración de tendencias, scraping externo, logística, y expansión a futuro (pagos, mensajería, analítica, etc.).
+
+***
+
+## 2. Propósito del Sistema
+
+- Centralizar y automatizar la gestión completa de productos, rankings, ventas, campañas y logística para vendedores y proveedores exigiendo el menor esfuerzo manual.
+- Brindar control total al usuario: cada uno puede operar con su propia cuenta, decidir stock, copy y acciones de marketing.
+- Ofrecer ventaja competitiva: información real, generación automática de campañas, integración logística y actualización de tendencias real-time sin depender de los límites del marketplace.
+
+***
+
+## 3. Usuarios a quienes está dirigido
+
+- Proveedores mayoristas (B2B/B2C)
+- Dropshippers que buscan escalar y automatizar
+- Emprendedores y agencias de marketing digital
+- Equipos de logística y operaciones
+- Consultores y analistas de e-commerce
+
+***
+
+## 4. Ejemplo de experiencia paso a paso (como si llevara de la mano):
+
+- El proveedor accede con usuario/contraseña. Sube 100 productos en Excel, cada uno con cantidad personalizada.
+- El sistema devuelve títulos, imágenes, descripciones y keywords IA listas en segundos.
+- El dropshipper consulta el ranking semanal con un clic. Decide qué vender. No se preocupa por automatismos inesperados: gestiona su propio stock.
+- El usuario accede al centro de análisis de anuncios, copia un anuncio ganador e inicia una campaña en WhatsApp y Facebook en minutos.
+- El vendedor rastrea envíos en tiempo real, recibe notificación directa si el transporte entrega/recoge el paquete.
+- El usuario avanza a Shopee y Mercado Libre, compara tendencias y replica campañas multicanal sin cambiar su flujo de trabajo.
+
+***
+
+## 5. Funcionalidades — Explicación con ejemplos
+
+### 5.1 Subida Masiva y Manual de Productos + IA
+- Permite subir productos con archivo o formulario, cada uno con cantidad manual elegida.
+- La IA genera automáticamente:
+   - Título atractivo
+   - Descripción corta y larga de venta
+   - Imagen personalizada y keywords relevantes
+- Ejemplo request:  
+  `/api/producto/subida-masiva`
+- Ejemplo response:
+```json
+{
+  "productos": [
+    {"nombre": "Taza Mágica", "cantidad": 50, "titulo": "¡Innova en tu desayuno!", "descripcion": "Taza que cambia de color con calor...", "imagen": "taza_new.jpg"},
+    {"nombre": "Camisa Cairo", "cantidad": 30, "titulo": "Alta frescura y estilo", "descripcion": "Camisa de algodón, éxito en tendencia...", "imagen": "camisa_new.jpg"}
+  ]
+}
+```
+
+### 5.2 Edición Manual de Stock
+- El proveedor puede cambiar stock en cualquier momento, sin controles automáticos.
+- Sin pausas, ni descuentas, ni bloqueos automáticos.
+- Endpoint: `/api/producto/editar-stock`
+
+### 5.3 Rankings de Productos, Vendedores y Proveedores en Tendencia
+- Ranking claro: TOP 1, TOP 2... de productos, dropshippers y mayoristas.
+- Incluye nombre, tienda, perfil completo y datos de cada participante.
+- Endpoint: `/api/dropi/tendencias`
+- Ejemplo:
+```json
+{
+  "rankingProveedores": [
+    {"puesto": 1, "proveedor": "BigStorePy", "ventas": 540, "productosTendencia": 4},
+    {"puesto": 2, "proveedor": "CasaColor", "ventas": 390, "productosTendencia": 2}
+  ]
+}
+```
+
+### 5.4 Centro de Anuncios & Keywords (Cobro contra entrega y tendencia)
+- Permite analizar y copiar los anuncios ganadores de Facebook, TikTok, Google, focalizado en productos 'cobro contra entrega'.
+- Entrega copy optimizado, imagen y keywords para nuevos anuncios.
+- Endpoint: `/api/ads-center`
+- Ejemplo de result:
+```json
+{
+  "anuncios": [
+    {"producto": "Zapatillas LED", "copy": "¡Brilla en cada paso! Pide y paga al recibir.", "canal": "Facebook", "engagement": 730}
+  ]
+}
+```
+
+### 5.5 Integración con Logística y API de transportadoras
+- Consulta y notifica en tiempo real el estado del pedido, desde cualquier transportadora conectada.
+- Endpoint: `/api/logistica/tracking`
+- Ejemplo response:
+```json
+{
+  "pedido": "SDF889",
+  "estado": "En reparto",
+  "ubicacion": "San Lorenzo"
+}
+```
+
+### 5.6 Scraper y Tendencias Multi-Marketplace
+- Replica toda la inteligencia y análisis de tendencias en Shopee, Mercado Libre y otros parceiros, siempre separado del núcleo Dropi.
+- Endpoint: `/api/scraper/altaplataforma`
+- Ejemplo response:
+```json
+{
+  "plataforma": "Shopee",
+  "productosTendencia": [
+    {"nombre": "Mini Impresora", "ventas": 320, "diferenciaDropi": "+20%"}
+  ]
+}
+```
+
+### 5.7 Multiusuario y seguridad
+- Cada usuario accede con su propia cuenta/cookies/credenciales. Cada consulta y resultado es individual y privado.
+- Se almacena encriptado, las claves son modificables y nunca se comparten.
+
+***
+
+## 6. Potenciadores de Futuro y Mejoras
+
+Incluidos en el código:
+- Integración con pagos electrónicos (MercadoPago/Stripe).
+- Alertas automáticas (WhatsApp/Telegram/Email, pero nunca bloquea ventas).
+- Panel visual para insights comparativos, simuladores logísticos, IA Predictiva de mercados.
+- Sistema flexible para integración plug & play de nuevos marketplaces, transportadoras, pasarelas de pago y canales de anuncios.
+- Plan real de expansión internacional con configuración multi lengua/country ready.
+
+***
+
+**Este documento es tu guía empresarial, técnica y funcional, con lógica modular, escalabilidad real y ejemplos para que cualquier usuario (proveedor, dropshipper, equipo técnico, inversionista) pueda seguir de la mano el flujo y explotarlo al máximo.
+¿Quieres los esquemas visuales, base de datos o diagrama de decisiones? ¡Pídelo y lo agrego ahora mismo!**
+
+[1](https://app.dropi.com.py/dashboard/search)
