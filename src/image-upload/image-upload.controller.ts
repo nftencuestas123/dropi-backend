@@ -8,6 +8,7 @@ import {
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
+
 @Controller('images')
 export class ImageUploadController {
   @Post('upload')
@@ -15,15 +16,17 @@ export class ImageUploadController {
     FileInterceptor('image', {
       storage: diskStorage({
         destination: './uploads',
-        filename: (req: any, file: any, callback: any) => {
+        filename: (req, file, callback) => {
           const uniqueName = Date.now() + extname(file.originalname);
           callback(null, uniqueName);
         }
       })
     })
   )
-  uploadFile(@UploadedFile() file: Express.Multer.File, @Body('section') section: string) {
-    // Aquí puedes guardar el registro en tu base de datos (nombre del archivo y sección)
+  uploadFile(
+    @UploadedFile() file: Express.Multer.File,
+    @Body('section') section: string
+  ) {
     return {
       mensaje: 'Imagen subida!',
       filename: file.filename,
