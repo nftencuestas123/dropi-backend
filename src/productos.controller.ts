@@ -7,7 +7,7 @@ export class ProductosController {
   constructor(private readonly productosService: ProductosService) {}
   @Post('subida-masiva')
   @UseInterceptors(FileInterceptor('archivo'))
-  async subidaMasiva(@UploadedFile() archivo: Express.Multer.File, @Body('usarIA') usarIA: boolean) {
+  async subidaMasiva(@UploadedFile() archivo: any, @Body('usarIA') usarIA: boolean) {
     return this.productosService.subidaMasiva(archivo, usarIA);
   }
   @Patch('editar-stock/:id')
