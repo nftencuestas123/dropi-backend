@@ -37,10 +37,22 @@
 
 ### Base de datos y escalabilidad
 
-- Arquitectura de datos para PostgreSQL/SupaBase, lista para migración cloud y clusters.
-- Estructura relacional con triggers y procedimientos almacenados que aceleran la gestión y aseguran integridad.
-- Capacidad para millones de transacciones concurrentes, fail-over instantáneo y backups automáticos.
-- Preparación para IA empresarial, scoring, antifraude y predicción de demanda/compra.
+- Dropi Backend utiliza una arquitectura de datos centralizada en PostgreSQL, el motor de base de datos relacional #1 a nivel mundial para misión crítica ([más información]). Todo está planeado para funcionar desde el primer momento con proveedores empresariales (Railway, AWS, Azure, Google Cloud) así como plataformas administradas como Supabase, que ofrecen facilidad de migración, backups automáticos y clonación de bases de datos de manera sencilla.​
+
+- Preparado para producción: Puedes mover el sistema a la nube, a tu propio servidor o cambiar de proveedor cuando lo requieras, sin volver a programar ni perder datos.
+
+- Estructura relacional avanzada: Modelado de datos con relaciones sólidas (tablas enlazadas, claves foráneas, índices inteligentes), triggers (automatización de tareas y reglas de negocio dentro de la base de datos) y procedimientos almacenados (bloques de lógica segura y eficiente dentro del propio motor). Esto permite mantener la integridad de tus datos a prueba de fallos y errores humanos.
+
+- Escalabilidad ilimitada: Planeado para manejar desde cientos hasta millones de usuarios y transacciones simultáneas, sin interrupciones. Cuando la carga crece, puedes aumentar el tamaño del clúster, activar instancias de respaldo (fail-over) y asegurar la continuidad del negocio.
+
+- Backups y migraciones simples: Copias de seguridad automáticas, restauración en segundos y capacidad de migrar la base de datos (por ejemplo, de un entorno local a Supabase Cloud o Railway) usando herramientas estándar (pg_dump / pg_restore) y asistentes visuales. Cambiar de proveedor no representa obstáculos técnicos, sólo importa tu estrategia comercial.​
+
+- Listo para IA y analítica: Estructura adaptada para sumar algoritmos avanzados de inteligencia artificial (scoring, antifraude, análisis predictivo) que aprovechan extensiones de PostgreSQL modernas, como pgvector, tablas JSON y búsquedas avanzadas, sin requerir bases de datos externas.​
+
+- Automatización empresarial: Triggers y scripts permiten: mantener historiales, calcular estadísticas al vuelo, bloquear operaciones sospechosas, y llevar auditoría legal sin depender de lógica externa.
+
+- En resumen: Dropi aprovecha la potencia de PostgreSQL, la flexibilidad y productividad de Supabase (si se requiere), y es capaz de escalar de manera segura en cualquier entorno cloud — facilitando el mantenimiento, traslado, análisis de datos y cumplimiento normativo sin excesos de costo ni complejidad. Esto beneficia tanto a pequeñas empresas en etapa inicial como a grandes compañías que demandan datos a prueba de hackeos, caídas y pérdida accidental.
+
 
 ### Microservicios, devops y cloud
 
