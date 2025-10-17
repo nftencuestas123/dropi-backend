@@ -1,3 +1,3 @@
 export class EditStockDto {
-  nuevostock: number = 0;
+  nuevo_stock: number = 0;
 }
