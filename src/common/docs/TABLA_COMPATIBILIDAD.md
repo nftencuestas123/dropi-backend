@@ -9,4 +9,4 @@ Docker      |  22              |  24                   |  Optional for CI/CD
 
 
 
-ctualízala cuando cambies de dependencias, frameworks o hardware soportado.
+Actualízala cuando cambies de dependencias, frameworks o hardware soportado.
