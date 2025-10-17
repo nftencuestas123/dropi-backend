@@ -8,7 +8,6 @@ import {
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
-
 @Controller('images')
 export class ImageUploadController {
   @Post('upload')
@@ -16,7 +15,7 @@ export class ImageUploadController {
     FileInterceptor('image', {
       storage: diskStorage({
         destination: './uploads',
-        filename: (req, file, callback) => {
+        filename: (req: any, file: any, callback: any) => {
           const uniqueName = Date.now() + extname(file.originalname);
           callback(null, uniqueName);
         }
