@@ -1,8 +1,5 @@
 import axios from "axios";
-
-// Cambia esta URL si tu backend tiene dominio personalizado
-const API_BASE_URL = "https://dropi-backend-production.up.railway.app/api";
-
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL as string;
 export const api = axios.create({
   baseURL: API_BASE_URL,
   timeout: 8000,
@@ -10,6 +7,7 @@ export const api = axios.create({
     "Content-Type": "application/json",
   },
 });
+
 
 // Ejemplo: Obtener productos en tendencia
 export async function getTrendingProducts() {
