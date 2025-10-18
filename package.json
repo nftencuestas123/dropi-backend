@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nest start",
     "start:dev": "nest start --watch",
+    "start:prod": "nest start --production",
     "build": "nest build"
   },
   "dependencies": {
